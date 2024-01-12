@@ -1,0 +1,538 @@
+/**************************************[Start Standard Rules]*********************************/
+
+/* Variables */
+:root {
+    --main-color: #1d9faf;
+    --layer1: #e4f7fe;
+    --layer2: #ccfbff;
+    --main-transition: 0.3s;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    padding: 0 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Small */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+/* Medium */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/* Large */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+/* Animations */
+@keyframes moving {
+    from {
+        top: -30px;
+    }
+
+    to {
+        top: 20px;
+    }
+}
+
+/**************************************[End Standard Rules]*********************************/
+/* Landing */
+.landing {
+    background-color: var(--layer1);
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Header Style */
+
+header .container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: auto;
+    z-index: 2;
+
+}
+
+header .container .logo {
+    display: flex;
+    align-items: center;
+    flex-grow: 3;
+    z-index: 2;
+
+}
+
+header .container .logo a {
+    font-weight: bold;
+    font-size: 25px;
+
+}
+
+header .logo img {
+    width: 55px;
+    margin-right: 5px;
+}
+
+.bar {
+    flex-grow: 2;
+}
+
+header .container .list {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+}
+
+
+header .container .list li {
+    text-transform: capitalize;
+    font-size: 16px;
+    font-weight: 600;
+    z-index: 5;
+}
+
+header .container a {
+    text-decoration: none;
+    color: black;
+    position: relative;
+    overflow: hidden;
+}
+
+header .container .list li a {
+    transition: var(--main-transition);
+}
+
+
+header .container .list li:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--main-color);
+    border-radius: 18px;
+    padding: 5px 25px;
+    position: relative;
+    overflow: hidden;
+
+}
+
+header .container .list li:last-child::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-color);
+    position: absolute;
+    left: -100%;
+    z-index: -1;
+    transition: var(--main-transition);
+
+}
+
+header .container .list .last:hover::before {
+    left: 0;
+}
+
+header .container .list .last:hover a {
+    color: white;
+}
+
+
+header .container .list li:not(:last-child) a {
+    display: block;
+    padding: 5px 0;
+    margin: 3px auto;
+    width: fit-content;
+}
+
+header .container .list li:not(:last-child) a::before {
+    content: "";
+    width: 100%;
+    height: 2.5px;
+    background-color: var(--main-color);
+    position: absolute;
+    left: -100%;
+    bottom: 0;
+    transition: var(--main-transition);
+}
+
+header .container .list li a:hover::before {
+    left: 0;
+}
+
+/***********************************************Responsive of Landing***********************************************/
+
+@media (min-width: 900px) {
+    .landing::before {
+        content: "";
+        width: 70%;
+        height: 85%;
+        position: absolute;
+        background-color: var(--layer2);
+        left: -28%;
+        top: -38%;
+        transform: rotate(45deg);
+        border-radius: 20px;
+        z-index: 0;
+    }
+
+    .landing::after {
+        content: "";
+        width: 70%;
+        height: 85%;
+        position: absolute;
+        background-color: var(--layer2);
+        left: 6.5%;
+        top: -65%;
+        transform: rotate(45deg);
+        border-radius: 20px;
+        z-index: 0;
+    }
+
+}
+
+@media (max-width: 900px) {
+    .landing::before {
+        content: "";
+        width: 140%;
+        height: 76%;
+        position: absolute;
+        background-color: var(--layer2);
+        left: 0;
+        bottom: -50%;
+        transform: rotate(-10deg);
+        z-index: 0;
+    }
+}
+
+/***********************************************[Responsive of Landing]***********************************************/
+/***********************************************[Responsive of Header]***********************************************/
+
+
+@media (max-width: 991.9px) {
+    header .container .logo {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 685px) {
+    header .container .list {
+        visibility: hidden;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        border-radius: 20px;
+        padding: 0 50px 10px;
+        background-color: #ccfbffee;
+        flex-grow: 1;
+        left: 0;
+        top: 75px;
+        width: 100%;
+        position: absolute;
+        opacity: 0;
+        transition: top var(--main-transition), opacity var(--main-transition);
+    }
+
+    header .container .list::before {
+        content: "";
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        background-color: transparent;
+        top: -100%;
+        right: 0;
+    }
+    header .container .list li{
+        transition: 0s;
+    }
+    header .container .list li:last-child {
+        width: fit-content;
+        margin: auto;
+    }
+    
+    header .container .logo {
+        font-size: 20px;
+        justify-content: start;
+    }
+    
+    header .container .logo a {
+        font-size: 21px;
+    }
+    
+    header .container .logo img {
+        width: 45px;
+    }
+    
+    .bar {
+        width: fit-content;
+    }
+    
+    .bar::before {
+        font-family: 'FontAwesome';
+        content: "\f0c9";
+        position: absolute;
+        right: 4%;
+        top: 14px;
+        z-index: 5;
+        padding-bottom: 5px;
+    }
+    
+    .bar:hover .list {
+        visibility: visible;
+        opacity: 1;
+        top: 42px;
+        z-index: 5;
+    }
+    
+}
+
+
+
+/***********************************************[Responsive of Header]***********************************************/
+/***********************************************[Start Section Style]***********************************************/
+section .container {
+    display: flex;
+    margin-top: 60px;
+    align-items: center;
+
+}
+
+section .container .info {
+    margin: 0 80px 0 0;
+    flex-grow: 1;
+    z-index: 2;
+
+}
+
+section .container p:first-child {
+    color: var(--main-color);
+    font-weight: 600;
+    font-size: 15px;
+    padding-bottom: 15px;
+}
+
+section .container h3 {
+    font-size: 45px;
+    text-transform: capitalize;
+    font-weight: 400;
+    padding-bottom: 20px;
+    width: 555px;
+}
+
+section .container h3 span {
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 10px;
+    position: relative;
+    display: inline-block;
+    width: fit-content;
+    z-index: 10;
+}
+
+section .container h3 span::before {
+    content: "";
+    width: 108%;
+    top: -1px;
+    left: -3.5%;
+    opacity: .3;
+    height: 100%;
+    border: 1px solid var(--main-color);
+    border-radius: 50%;
+    position: absolute;
+    transform: rotate(-6deg);
+    z-index: -4;
+}
+
+section .container h3 span::after {
+    content: "";
+    width: 100%;
+    opacity: 0.3;
+    height: 100%;
+    border: 1px solid var(--main-color);
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0
+}
+
+section .container p:last-of-type {
+    font-weight: 500;
+    font-size: 15px;
+    padding-bottom: 60px;
+}
+
+section .container a {
+    text-decoration: none;
+    text-transform: capitalize;
+    color: white;
+    font-weight: 500;
+    background-color: var(--main-color);
+    border-radius: 30px;
+    padding: 10px 30px;
+    font-size: 12px;
+}
+
+section .container .image {
+    max-width: 650px;
+    width: auto;
+    animation: moving 2s linear infinite alternate-reverse;
+    position: relative;
+    z-index: 2;
+
+}
+
+section .container img {
+    width: 100%;
+}
+
+/***********************************************[Responsive of Section of Landing]***********************************************/
+
+@media (max-width: 992px) {
+
+    section .container img {
+        display: none;
+    }
+
+    section .container .info {
+        width: 100%;
+        text-align: center;
+        margin-right: 0;
+
+    }
+
+    section .container .info h3 {
+        width: 100%;
+    }
+}
+
+@media (max-width: 750px) {
+    section .container h3 {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 450px) {
+    section .container h3 {
+        font-size: 22px;
+    }
+}
+
+/***********************************************[Responsive of Section of Landing]***********************************************/
+/*******************************************************[Start Services Style]**************************************************/
+.serv {
+    height: 100vh;
+    width: auto;
+
+}
+
+
+
+.serv .container .info {
+    padding-top: 70px;
+    text-align: center;
+}
+
+.serv .container .info p:first-of-type {
+    color: var(--main-color);
+    font-weight: 500;
+    font-size: 18px;
+    text-transform: capitalize;
+    padding: 10px;
+
+}
+
+.serv .container .info h2 {
+    font-size: 28px;
+    text-transform: capitalize;
+    padding-bottom: 15px;
+}
+
+.serv .container .info p:last-of-type {
+    max-width: 500px;
+    margin: 0 auto 40px;
+    color: #555;
+    font-size: 15px;
+}
+
+.serv .container .content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    padding-top: 20px;
+    align-items: center;
+    gap: 40px;
+
+}
+
+.serv .container .content .box {
+    text-align: center;
+    box-shadow: -1px 1px 8px 0px #d7d7d7;
+    padding: 30px;
+    height: 300px;
+    border-radius: 15px;
+    transition: var(--main-transition);
+}
+
+.serv .container .content .box:first-child {
+    background-color: var(--layer1);
+}
+
+
+.serv .container .content .box img {
+    width: 100%;
+    height: 48px;
+}
+
+.serv .container .content .box .img {
+    width: 75px;
+    margin: 20px auto;
+    border: 1px solid var(--main-color);
+    padding: 10px;
+    border-radius: 50%;
+    background-color: var(--layer2);
+}
+
+.serv .container .content h2 {
+    font-size: 25px;
+    font-weight: 400;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+}
+
+.serv .container .content p {
+    font-size: 13px;
+    color: #555;
+}
+
+.serv .container .content .box:hover {
+    transform: translateY(-8px);
+    box-shadow: -1px 4px 15px 2px #a5a5a5c7;
+}
+
+/***********************************************[End Services Style]***********************************************/
