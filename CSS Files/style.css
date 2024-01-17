@@ -78,7 +78,6 @@ header .container {
     justify-content: center;
     height: auto;
     z-index: 2;
-
 }
 
 header .container .logo {
@@ -96,8 +95,8 @@ header .container .logo a {
 }
 
 header .logo img {
-    width: 55px;
-    margin-right: 5px;
+    width: 38px;
+    margin: 5px;
 }
 
 .bar {
@@ -269,48 +268,51 @@ header .container .list li a:hover::before {
         top: -100%;
         right: 0;
     }
-    header .container .list li{
+
+    header .container .list li {
         transition: 0s;
     }
+
     header .container .list li:last-child {
         width: fit-content;
         margin: auto;
     }
-    
+
     header .container .logo {
         font-size: 20px;
         justify-content: start;
     }
-    
+
     header .container .logo a {
         font-size: 21px;
     }
-    
+
     header .container .logo img {
-        width: 45px;
+        width: 35px;
     }
-    
+
     .bar {
         width: fit-content;
     }
-    
+
     .bar::before {
         font-family: 'FontAwesome';
         content: "\f0c9";
         position: absolute;
         right: 4%;
-        top: 14px;
+        top: 9px;
         z-index: 5;
-        padding-bottom: 5px;
+        padding: 7px;
+        margin-right: 2px;
     }
-    
+
     .bar:hover .list {
         visibility: visible;
         opacity: 1;
         top: 42px;
         z-index: 5;
     }
-    
+
 }
 
 
@@ -447,12 +449,9 @@ section .container img {
 /***********************************************[Responsive of Section of Landing]***********************************************/
 /*******************************************************[Start Services Style]**************************************************/
 .serv {
-    height: 100vh;
+    margin-bottom: 160px;
     width: auto;
-
 }
-
-
 
 .serv .container .info {
     padding-top: 70px;
@@ -536,3 +535,42 @@ section .container img {
 }
 
 /***********************************************[End Services Style]***********************************************/
+/***********************************************[End footer Style]***********************************************/
+footer {
+    height: 65px;
+    background-color: var(--layer2);
+    border-top: 1px solid var(--main-color);
+    width: 100%;
+    color: #555;
+}
+
+footer p {
+    text-align: center;
+    font-size: 16px;
+    padding: 5px;
+    font-weight: 500;
+}
+
+footer p:first-child {
+    margin-top: 5px;
+}
+
+footer span {
+    font-weight: bold;
+    font-size: 17px;
+    color: var(--main-color);
+}
+
+@media (max-width: 450px) {
+    footer p {
+        font-size: 14.5px;
+    }
+    footer span {
+        font-size: 16px;
+    }
+    .serv {
+        margin-bottom: 100px;
+    }
+}
+
+/***********************************************[End footer Style]***********************************************/
